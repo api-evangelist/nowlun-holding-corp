@@ -1,8 +1,27 @@
 aid: nowlun-holding-corp
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/nowlun-holding-corp.png
 name: Nowlun Holding Corp.
-description: Nowlun Holding Corp. is a company surfaced as a portfolio company of 500-global and added
-  to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment
-  pipeline.
+description: >-
+  Nowlun is a digital freight-forwarding platform serving the Middle East and North
+  Africa that lets businesses compare instant ocean-freight quotes from 30+ shipping
+  lines, book FCL and bulk sea shipments, arrange inland trucking to and from ports,
+  track cargo through transit, and handle customs clearance. Beyond its shipper-facing
+  web application, Nowlun operates a live, OAuth-protected Model Context Protocol (MCP)
+  server at https://nowlun.com/mcp, secured with RFC 8414 authorization-server and RFC
+  9728 protected-resource discovery (Authorization Code + PKCE, "mcp" scope). Surfaced
+  as a 500 Global portfolio company and enriched into the API Evangelist network.
 url: https://raw.githubusercontent.com/api-evangelist/nowlun-holding-corp/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -12,15 +31,61 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
-apis: []
+- Logistics
+- Freight Forwarding
+- Shipping
+- Supply Chain
+- Sea Freight
+- Customs
+- MENA
+- MCP
+apis:
+- name: Nowlun MCP Server
+  description: >-
+    OAuth-protected Model Context Protocol server exposing Nowlun freight-forwarding
+    capabilities to agents. Requires an access token holding the "mcp" scope.
+  humanURL: https://nowlun.com
+  baseURL: https://nowlun.com/mcp
+  properties:
+  - type: MCPServer
+    url: mcp/nowlun-holding-corp-mcp.yml
+  - type: Authentication
+    url: authentication/nowlun-holding-corp-authentication.yml
+  - type: OAuthScopes
+    url: scopes/nowlun-holding-corp-scopes.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: MCPServer
+  url: mcp/nowlun-holding-corp-mcp.yml
+- type: WellKnown
+  url: well-known/nowlun-holding-corp-well-known.yml
+- type: Authentication
+  url: authentication/nowlun-holding-corp-authentication.yml
+- type: OAuthScopes
+  url: scopes/nowlun-holding-corp-scopes.yml
+- type: DomainSecurity
+  url: security/nowlun-holding-corp-domain-security.yml
+- type: SignUp
+  url: https://nowlun.com/en/users/register/sign_up
+- type: Login
+  url: https://nowlun.com/en/users/login
+- type: Blog
+  url: https://nowlun.com/en/resources
+- type: PrivacyPolicy
+  url: https://nowlun.com/privacy
+- type: Support
+  url: https://wa.me/201014176458
 - type: Website
   url: https://nowlun.com
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 5
+  pass: local-v1

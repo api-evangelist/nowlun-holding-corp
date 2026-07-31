@@ -1,0 +1,31 @@
+generated: '2026-07-20'
+method: searched
+source: https://nowlun.com/.well-known/oauth-authorization-server
+schemes:
+- name: OAuth2
+  source: well-known/nowlun-holding-corp-oauth-authorization-server.json
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://nowlun.com/oauth/authorize
+    tokenUrl: https://nowlun.com/oauth/token
+scopes:
+- scope: mcp
+  description: >-
+    Access to Nowlun's MCP (Model Context Protocol) server at https://nowlun.com/mcp.
+    Verified: the protected-resource metadata lists "mcp" as the required scope for that resource.
+  flows: [authorizationCode]
+  sources: [well-known/nowlun-holding-corp-oauth-authorization-server.json]
+- scope: excel
+  description: >-
+    Scope advertised in scopes_supported. Purpose not documented publicly (no scope reference page published).
+  flows: [authorizationCode]
+  sources: [well-known/nowlun-holding-corp-oauth-authorization-server.json]
+- scope: mind
+  description: >-
+    Scope advertised in scopes_supported. Purpose not documented publicly (no scope reference page published).
+  flows: [authorizationCode]
+  sources: [well-known/nowlun-holding-corp-oauth-authorization-server.json]
+notes: >-
+  Scopes captured verbatim from published scopes_supported. Nowlun does not publish a
+  human-readable scope/permission reference page, so descriptions beyond the verified
+  "mcp" resource binding are left honestly undocumented.

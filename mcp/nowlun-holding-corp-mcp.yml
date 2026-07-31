@@ -1,0 +1,29 @@
+generated: '2026-07-20'
+method: searched
+source: live probe of https://nowlun.com/mcp + https://nowlun.com/.well-known/oauth-protected-resource
+status: published
+server:
+  name: nowlun
+  transport: http          # Streamable HTTP JSON-RPC endpoint
+  url: https://nowlun.com/mcp
+authorization:
+  # RFC 9728 protected-resource + RFC 8414 authorization-server discovery
+  protected_resource: https://nowlun.com/.well-known/oauth-protected-resource
+  authorization_server: https://nowlun.com
+  authorization_endpoint: https://nowlun.com/oauth/authorize
+  token_endpoint: https://nowlun.com/oauth/token
+  revocation_endpoint: https://nowlun.com/oauth/revoke
+  jwks_uri: https://nowlun.com/oauth/discovery/keys
+  grant_types: [authorization_code, refresh_token]
+  code_challenge_methods: [S256]
+  required_scope: mcp
+evidence:
+  - 'GET/POST https://nowlun.com/mcp -> 401 Unauthorized'
+  - 'WWW-Authenticate: Bearer resource_metadata="https://nowlun.com/.well-known/oauth-protected-resource"'
+  - 'protected-resource: resource=https://nowlun.com/mcp, authorization_servers=[https://nowlun.com], scopes_supported=[mcp]'
+tools: []   # tool list not enumerable: the MCP endpoint requires an OAuth bearer token (no anonymous initialize, no dynamic client registration at /oauth/register)
+notes: >-
+  Nowlun operates a live, OAuth-protected MCP server. Tool discovery requires an
+  authorized access token holding the "mcp" scope, so the concrete tool surface
+  could not be captured anonymously. No dynamic client registration endpoint was
+  found (POST /oauth/register -> 404); clients are presumably pre-registered.

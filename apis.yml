@@ -23,7 +23,7 @@ accessModel:
   generated: '2026-07-22'
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/nowlun-holding-corp.png
-name: Nowlun Holding Corp.
+name: Nowlun
 description: >-
   Nowlun is a digital freight-forwarding platform serving the Middle East and North
   Africa that lets businesses compare instant ocean-freight quotes from 30+ shipping
@@ -44,6 +44,16 @@ specificationVersion: '0.23'
 created: '2026-07-17'
 modified: '2026-07-20'
 tags:
+- Company
+- Logistics
+- Freight Forwarding
+- Shipping
+- Supply Chain
+- Ocean Freight
+- Customs
+- MENA
+- MCP
+tags_raw:
 - Company
 - Logistics
 - Freight Forwarding
@@ -100,3 +110,4 @@ x-enrichment:
   status: enriched
   artifacts_added: 5
   pass: local-v1
+x-legal-name: Nowlun Holding Corp.
